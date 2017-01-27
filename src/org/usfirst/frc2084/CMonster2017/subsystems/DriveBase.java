@@ -126,8 +126,6 @@ public class DriveBase extends Subsystem {
    returnData = arcadeDrive.calculateSpeed(moveSpeed, rotateSpeed);
    leftMotorSpeed = returnData[0];
    rightMotorSpeed = returnData[1];
-   leftMotorSpeed *= -1;
-   rightMotorSpeed *= -1;
    //these 3 lines replace the arcade calculations blocks, call them from ArchadeDrive class
    
    
@@ -176,7 +174,8 @@ public class DriveBase extends Subsystem {
   //method called during teleop from DriveWithJoystick command. executes arcade drive algorithm using joy stick inputs.
     public void JoystickInputs(Joystick stick){ //teleop method
     	
-    	moveSpeed = stick.getY(); // set variables = Joystick inputs  
+    	moveSpeed = stick.getY() * -1; // set variables = Joystick inputs 
+    	//invert the y value to -1 so that pushing the joystick forward gives a positive value
     	rotateSpeed = stick.getX();
     	
     	returnData = arcadeDrive.calculateSpeed(moveSpeed, rotateSpeed);
