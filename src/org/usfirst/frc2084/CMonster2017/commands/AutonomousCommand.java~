@@ -39,14 +39,12 @@ public class AutonomousCommand extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    RobotMap.ahrs.reset();
+   RobotMap.ahrs.reset();
   	Robot.driveBase.EnableDriveBase();
-  	AutonomousDrive.Waypoint = 0; //  way point index - Start at first way point.
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	
     	Robot.driveBase.DriveAutonomous();
     }
 
