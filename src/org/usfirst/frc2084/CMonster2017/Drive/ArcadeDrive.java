@@ -13,6 +13,7 @@ public class ArcadeDrive {
 	
 	
 	public double[] calculateSpeed (double moveSpeed,double rotateSpeed){
+	
 		
 		 // Do the calculations for arcade drive.
         if (moveSpeed > 0.0) {
@@ -25,7 +26,7 @@ public class ArcadeDrive {
             }
         } else {
             if (rotateSpeed > 0.0) {
-                leftMotorSpeed = -Math.max(-moveSpeed, rotateSpeed);
+                leftMotorSpeed = -Math.max(-moveSpeed, rotateSpeed); 
                 rightMotorSpeed = moveSpeed + rotateSpeed;
             } else {
                 leftMotorSpeed = moveSpeed - rotateSpeed;
@@ -36,6 +37,7 @@ public class ArcadeDrive {
         // Since one of the drive motors is physically mounted opposite the other, 
         // we need to invert one of the motor speed command.
         rightMotorSpeed *= -1; // invert motor speed command.
+        
         
         robotSpeed[0] = leftMotorSpeed;  // array element 0 is always the left motor speed.
         robotSpeed[1] = rightMotorSpeed;  // array element 1 is always the right motor speed.

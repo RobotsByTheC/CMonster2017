@@ -10,10 +10,11 @@ import org.usfirst.frc2084.CMonster2017.RobotMap;
 public class HeadingPID  extends PIDSubsystem {
 	
 	double Output; // Variable used to store the PID output
+	double yawOutput;
 	
 	// The constructor passes a name for the PIDSubsystem 
 	public HeadingPID() {  
-		super("HeadingPID", .05, 0.0, 0.0);  //calls the parent constructor with arguments P,I,D
+		super("HeadingPID", .005, 0.001, 0.0);  //calls the parent constructor with arguments P,I,D
 		
 		setAbsoluteTolerance(0.1);          // more parameters
 		getPIDController().setContinuous(false);
@@ -29,8 +30,11 @@ public class HeadingPID  extends PIDSubsystem {
 	}
 
 	 protected double returnPIDInput() {
-	    	return (double)RobotMap.ahrs.getYaw(); // returns the robot "Yaw" value that is providing the feedback 
+		 yawOutput = (double)RobotMap.ahrs.getYaw(); // returns the robot "Yaw" value that is providing the feedback 
 	    	//for the system. (double) converts a float to double
+		 yawOutput *= -1;
+	    	return yawOutput;
+	    	
 	    }
 
 	    protected void usePIDOutput(double output) {
