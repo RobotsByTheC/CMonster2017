@@ -33,7 +33,7 @@ static double PIDInput;
 	protected double returnPIDInput() {
 		// TODO Auto-generated method stub
 		//SmartDashboard.putNumber("DistancePID1", DriveBase.AverageDistance);
-		return DriveBase.AverageDistance;
+		return RobotMap.AverageDistance;
 	}
 	
 
