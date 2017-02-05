@@ -5,6 +5,7 @@ import org.usfirst.frc2084.CMonster2017.subsystems.DriveBase;
 
 
 import edu.wpi.first.wpilibj.command.PIDSubsystem;
+import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 public class DistancePID extends PIDSubsystem {
@@ -23,6 +24,8 @@ static double PIDInput;
 		getPIDController().setContinuous(false);
 		setInputRange(-10,  10);
 	    setOutputRange(-1, 1);
+	    
+	    LiveWindow.addActuator("DistancePID", "DistancePID", getPIDController());
 	}
 	
 	public void Reset(){  //reset the PID controller

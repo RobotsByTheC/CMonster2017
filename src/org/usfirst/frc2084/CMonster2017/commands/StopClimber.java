@@ -40,6 +40,7 @@ public class StopClimber extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+    	//stop the climber motor, call from ClimberBase
     }
 
     // Make this return true when this Command no longer needs to run execute()

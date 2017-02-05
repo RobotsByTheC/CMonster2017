@@ -27,8 +27,6 @@ import com.kauailabs.navx.frc.AHRS;
 public class TurnLeft extends Command {
 	
 	private final DistancePID distancePID = RobotMap.distancePID;
-	private final Encoder leftEncoder = RobotMap.driveBaseLeftEncoder;
-	private final Encoder rightEncoder = RobotMap.driveBaseRightEncoder;
 	private final HeadingPID headingPID = RobotMap.headingPID;
 	private final AHRS ahrs = RobotMap.ahrs;
 

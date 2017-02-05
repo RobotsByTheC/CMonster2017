@@ -2,6 +2,8 @@ package org.usfirst.frc2084.CMonster2017.PID;
 
 //import edu.wpi.first.wpilibj.*;
 import edu.wpi.first.wpilibj.command.PIDSubsystem;
+import edu.wpi.first.wpilibj.livewindow.LiveWindow;
+
 import org.usfirst.frc2084.CMonster2017.RobotMap;
 
 
@@ -20,6 +22,8 @@ public class HeadingPID  extends PIDSubsystem {
 		getPIDController().setContinuous(false);
 		setInputRange(-180.0,  180.0);
 	    setOutputRange(-1.0, 1.0);
+	    
+	    LiveWindow.addActuator("HeadingPID", "HeadingPID", getPIDController());
 	}
 	
 	public void Reset(){  //reset the PID controller

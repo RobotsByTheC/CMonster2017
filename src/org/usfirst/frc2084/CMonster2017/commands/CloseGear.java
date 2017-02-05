@@ -10,8 +10,12 @@
 
 
 package org.usfirst.frc2084.CMonster2017.commands;
+import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+
 import org.usfirst.frc2084.CMonster2017.Robot;
+import org.usfirst.frc2084.CMonster2017.subsystems.GearBase;
 
 /**
  *
@@ -40,7 +44,11 @@ public class CloseGear extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	//make the pneumatic door close
+    	//make the gear door close
+    	GearBase.gearSolenoid.set(DoubleSolenoid.Value.kReverse);
+    	
+    	//check to see if thing stopped even when the cylinders aren't connected
+    	//SmartDashboard.putNumber("Didthingstop?", 0);
     }
 
     // Make this return true when this Command no longer needs to run execute()
