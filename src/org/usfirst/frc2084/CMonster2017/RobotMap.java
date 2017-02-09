@@ -12,9 +12,13 @@
 package org.usfirst.frc2084.CMonster2017;
 import org.usfirst.frc2084.CMonster2017.PID.DistancePID;
 import org.usfirst.frc2084.CMonster2017.PID.HeadingPID;
+<<<<<<< HEAD
 import com.ctre.*;
 import com.ctre.CANTalon.FeedbackDevice;
 import com.ctre.CANTalon.TalonControlMode;
+=======
+
+>>>>>>> 6011140ae92ef4423b2a20ed31e77178eb71dd90
 import com.kauailabs.navx.frc.AHRS;
 import edu.wpi.first.wpilibj.I2C;
 

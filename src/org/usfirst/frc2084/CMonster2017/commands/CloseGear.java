@@ -44,10 +44,15 @@ public class CloseGear extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+<<<<<<< HEAD
     	//make the gear door close
     	GearBase.gearSolenoid.set(DoubleSolenoid.Value.kReverse);
     	//makes the pneumatic cylinder go back to close the gear thing 
     	    }
+=======
+    	//make the pneumatic door close
+    }
+>>>>>>> 6011140ae92ef4423b2a20ed31e77178eb71dd90
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {

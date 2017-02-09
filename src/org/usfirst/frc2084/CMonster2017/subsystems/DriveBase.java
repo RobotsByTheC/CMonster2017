@@ -49,6 +49,7 @@ public class DriveBase extends Subsystem {
      
       
       
+      
       // There are 2 driver motors on each side of the robot. 
       // Here are the declarations.
      private final CANTalon leftTalon1 = RobotMap.driveBaseLeftTalon1;
@@ -97,7 +98,13 @@ public class DriveBase extends Subsystem {
     	distancePID.disable();
     	headingPID.disable();
     	}
+<<<<<<< HEAD
      
+=======
+    
+    
+    
+>>>>>>> 6011140ae92ef4423b2a20ed31e77178eb71dd90
 	
     public void DriveAutonomous (){
     	
@@ -120,6 +127,7 @@ public class DriveBase extends Subsystem {
     leftTalon1.set(leftMotorSpeed * 586); //set thing to max speed
     rightTalon1.set(rightMotorSpeed * 586);
     
+<<<<<<< HEAD
    
     
     	//LeftDistance = leftEncoder.getDistance();    //Read encoder distance traveled in meters.
@@ -133,6 +141,15 @@ public class DriveBase extends Subsystem {
     	RightDistance = leftTalon1.getEncPosition() * PulseDistance;
     	
     	
+=======
+    	LeftDistance = leftEncoder.getDistance();    //Read encoder distance traveled in meters.
+    	RightDistance = rightEncoder.getDistance();
+    	//have to invert rightDistance so the average isn't negative
+    	RightDistance *= -1;
+    	RobotMap.AverageDistance = (LeftDistance + (RightDistance)) / 2;  // Calculate the average distance traveled.
+    	
+    			
+>>>>>>> 6011140ae92ef4423b2a20ed31e77178eb71dd90
     	SmartDashboard.putNumber("Left Distance", LeftDistance);   
     	SmartDashboard.putNumber("Right Distance", RightDistance);
     	SmartDashboard.putNumber("AV Distance", RobotMap.AverageDistance);
@@ -148,8 +165,12 @@ public class DriveBase extends Subsystem {
     	
     	//moveSpeed = stick.getY() * -1; // set variables = Joystick inputs 
     	//invert the y value to -1 so that pushing the joystick forward gives a positive value
+<<<<<<< HEAD
     	//rotateSpeed = stick.getX() * -1; //also invert the x value so right/left aren't inverted
     	
+=======
+    	rotateSpeed = stick.getX() * -1; //also invert the x value so right/left aren't inverted
+>>>>>>> 6011140ae92ef4423b2a20ed31e77178eb71dd90
     	
     	
     	//returnData = arcadeDrive.calculateSpeed(moveSpeed, rotateSpeed);
@@ -178,6 +199,12 @@ public class DriveBase extends Subsystem {
     	SmartDashboard.putNumber("Right errord", rightTalon1.getError());
     
     	
+<<<<<<< HEAD
+=======
+    	SmartDashboard.putNumber("LeftPID", leftMotorSpeed);
+    	SmartDashboard.putNumber("RightPID", rightMotorSpeed);
+    	
+>>>>>>> 6011140ae92ef4423b2a20ed31e77178eb71dd90
     
     }	 
 

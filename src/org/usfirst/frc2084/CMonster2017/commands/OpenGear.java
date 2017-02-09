@@ -12,7 +12,10 @@
 package org.usfirst.frc2084.CMonster2017.commands;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.command.Command;
+<<<<<<< HEAD
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+=======
+>>>>>>> 6011140ae92ef4423b2a20ed31e77178eb71dd90
 
 import org.usfirst.frc2084.CMonster2017.OI;
 import org.usfirst.frc2084.CMonster2017.Robot;
@@ -46,10 +49,14 @@ public class OpenGear extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+<<<<<<< HEAD
     	//make the gear door open
     	 GearBase.gearSolenoid.set(DoubleSolenoid.Value.kForward);
     	 //makes the pneumatic cylinder extend to open the gear boc
     	
+=======
+    	//make the pneumatic door open
+>>>>>>> 6011140ae92ef4423b2a20ed31e77178eb71dd90
     }
 
     // Make this return true when this Command no longer needs to run execute()
