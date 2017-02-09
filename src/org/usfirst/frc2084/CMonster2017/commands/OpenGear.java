@@ -48,6 +48,7 @@ public class OpenGear extends Command {
     protected void execute() {
     	//make the gear door open
     	 GearBase.gearSolenoid.set(DoubleSolenoid.Value.kForward);
+    	 //makes the pneumatic cylinder extend to open the gear boc
     	
     }
 
@@ -58,10 +59,12 @@ public class OpenGear extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
+    	GearBase.gearSolenoid.set(DoubleSolenoid.Value.kOff);
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
+    	GearBase.gearSolenoid.set(DoubleSolenoid.Value.kOff);
     }
 }

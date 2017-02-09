@@ -22,6 +22,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 /**
  *
  */
+
 public class GearBase extends Subsystem {
 	
 	public static DoubleSolenoid gearSolenoid;
@@ -42,10 +43,11 @@ public class GearBase extends Subsystem {
 	public void PneumaticCommands(){
 		
 		//declare a new instance of a solenoid, make off, reverse, and forward commands
-		DoubleSolenoid gearSolonoid = new DoubleSolenoid(1,2);
-			  gearSolonoid.set(DoubleSolenoid.Value.kOff);
+		DoubleSolenoid gearSolonoid = new DoubleSolenoid(1,2); //ports 1 and 2 on the PCM
+			  gearSolonoid.set(DoubleSolenoid.Value.kOff); //can call these in the commands classes
 			  gearSolonoid.set(DoubleSolenoid.Value.kForward);
 			  gearSolonoid.set(DoubleSolenoid.Value.kReverse);
+			  
 			  
 			//create the compressor object
 				Compressor c = new Compressor(0);

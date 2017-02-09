@@ -72,7 +72,7 @@ public class DriveBase extends Subsystem {
     double [] WayPoints = new double[3];  // array with 3 elements holding the distance to each way point;
     ArcadeDrive arcadeDrive = new ArcadeDrive();
     private final double PulseDistance = RobotMap.DISTANCE_PER_PULSE;
-   double[] returnData = new double[2];
+    double[] returnData = new double[2];
    
     
     
@@ -117,14 +117,15 @@ public class DriveBase extends Subsystem {
    //these 3 lines replace the arcade calculations blocks, call them from ArchadeDrive class
    
    
-    leftTalon1.set(leftMotorSpeed);
-
-    rightTalon1.set(rightMotorSpeed);
-    	
+    leftTalon1.set(leftMotorSpeed * 586); //set thing to max speed
+    rightTalon1.set(rightMotorSpeed * 586);
+    
+   
     
     	//LeftDistance = leftEncoder.getDistance();    //Read encoder distance traveled in meters.
     	//RightDistance = rightEncoder.getDistance();
     	//have to invert rightDistance so the average isn't negative
+    
     	RightDistance *= -1;
     	RobotMap.AverageDistance = (LeftDistance + (RightDistance)) / 2;  // Calculate the average distance traveled.
     	
@@ -143,30 +144,39 @@ public class DriveBase extends Subsystem {
     
  
   //method called during teleop from DriveWithJoystick command. executes arcade drive algorithm using joy stick inputs.
-    public void JoystickInputs(Joystick stick){ //teleop method
+    public void JoystickInputs(Joystick RightJoystick, Joystick LeftJoystick){ //teleop method
     	
-    	moveSpeed = stick.getY() * -1; // set variables = Joystick inputs 
+    	//moveSpeed = stick.getY() * -1; // set variables = Joystick inputs 
     	//invert the y value to -1 so that pushing the joystick forward gives a positive value
-    	rotateSpeed = stick.getX() * -1; //also invert the x value so right/left aren't inverted
+    	//rotateSpeed = stick.getX() * -1; //also invert the x value so right/left aren't inverted
     	
-    	returnData = arcadeDrive.calculateSpeed(moveSpeed, rotateSpeed);
+    	
+    	
+    	//returnData = arcadeDrive.calculateSpeed(moveSpeed, rotateSpeed);
     	
    
     	 
-    	leftMotorSpeed = returnData[0];
-    	rightMotorSpeed = returnData[1];
+    	leftMotorSpeed = LeftJoystick.getY() * -1;
+    	
+    	rightMotorSpeed = RightJoystick.getY(); 
         
         //leftMotorSpeed *= -1; // invert motor speed command.
 
         // Drive the left and right sides of the robot at the specified speeds.
-    	rightTalon1.setSetpoint(rightMotorSpeed);
-    	leftTalon1.setSetpoint(leftMotorSpeed);
+    	rightTalon1.set(rightMotorSpeed * 586); 
+    	leftTalon1.set(leftMotorSpeed * 568); 
+    	
+    	 SmartDashboard.putNumber("Velocity Left Talon", leftTalon1.getEncVelocity());
+    	    SmartDashboard.putNumber("Right Talon Velocity", rightTalon1.getEncVelocity());
+    	    SmartDashboard.putNumber("LeftPulses", leftTalon1.getEncPosition()/ 2048);
+    	    	
     	
     	
-    	SmartDashboard.putNumber("LeftPID", leftMotorSpeed);
-    	SmartDashboard.putNumber("RightPID", rightMotorSpeed);
-    	SmartDashboard.putNumber("Left Speed", leftTalon1.get());
-    	SmartDashboard.putNumber("Right Speed", rightTalon1.get());
+    	SmartDashboard.putNumber("LeftPID", leftMotorSpeed); //this should read 450
+    	SmartDashboard.putNumber("RightPID", rightMotorSpeed); //this should read 450
+    	SmartDashboard.putNumber("left error", leftTalon1.getError());
+    	SmartDashboard.putNumber("Right errord", rightTalon1.getError());
+    
     	
     
     }	 

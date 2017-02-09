@@ -46,10 +46,8 @@ public class CloseGear extends Command {
     protected void execute() {
     	//make the gear door close
     	GearBase.gearSolenoid.set(DoubleSolenoid.Value.kReverse);
-    	
-    	//check to see if thing stopped even when the cylinders aren't connected
-    	//SmartDashboard.putNumber("Didthingstop?", 0);
-    }
+    	//makes the pneumatic cylinder go back to close the gear thing 
+    	    }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
@@ -58,10 +56,13 @@ public class CloseGear extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
+    	GearBase.gearSolenoid.set(DoubleSolenoid.Value.kOff);
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
+    	GearBase.gearSolenoid.set(DoubleSolenoid.Value.kOff);
     }
-}
+    }
+
