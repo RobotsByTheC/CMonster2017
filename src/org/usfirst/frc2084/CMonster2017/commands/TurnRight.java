@@ -28,11 +28,10 @@ public class TurnRight extends Command {
 	
 	
 	private final DistancePID distancePID = RobotMap.distancePID;
-<<<<<<< HEAD:src/org/usfirst/frc2084/CMonster2017/commands/TurnRight.java
-=======
-	private final Encoder leftEncoder = RobotMap.driveBaseLeftEncoder;
-	private final Encoder rightEncoder = RobotMap.driveBaseRightEncoder;
->>>>>>> 6011140ae92ef4423b2a20ed31e77178eb71dd90:src/org/usfirst/frc2084/CMonster2017/commands/TurnRight.java
+
+	//private final Encoder leftEncoder = RobotMap.driveBaseLeftEncoder;
+	//private final Encoder rightEncoder = RobotMap.driveBaseRightEncoder;
+
 	private final HeadingPID headingPID = RobotMap.headingPID;
 	private final AHRS ahrs = RobotMap.ahrs;
 

@@ -10,6 +10,7 @@
 
 package org.usfirst.frc2084.CMonster2017.subsystems;
 
+import org.usfirst.frc2084.CMonster2017.Robot;
 import org.usfirst.frc2084.CMonster2017.RobotMap;
 import org.usfirst.frc2084.CMonster2017.Drive.ArcadeDrive;
 import org.usfirst.frc2084.CMonster2017.PID.DistancePID;
@@ -89,7 +90,7 @@ public class DriveBase extends Subsystem {
     	distancePID.enable();
     	
     	headingPID.enable();
-    	
+    	Robot.gearBase.CompressorOn();
        	}
     	
     public void DisableDriveBase() {
@@ -98,18 +99,12 @@ public class DriveBase extends Subsystem {
     	distancePID.disable();
     	headingPID.disable();
     	}
-<<<<<<< HEAD
-     
-=======
-    
-    
-    
->>>>>>> 6011140ae92ef4423b2a20ed31e77178eb71dd90
-	
+
+
     public void DriveAutonomous (){
     	
-    	moveSpeed = distancePID.getOutput();
-    	rotateSpeed = headingPID.getOutput();  //Get and store the output from the heading PID controller.
+         moveSpeed = distancePID.getOutput();
+         rotateSpeed = headingPID.getOutput();  //Get and store the output from the heading PID controller.
     	
     	
     	SmartDashboard.putNumber("HeadingPID", rotateSpeed);//rotateSpeed is the value of HeadingPID
@@ -127,7 +122,7 @@ public class DriveBase extends Subsystem {
     leftTalon1.set(leftMotorSpeed * 586); //set thing to max speed
     rightTalon1.set(rightMotorSpeed * 586);
     
-<<<<<<< HEAD
+
    
     
     	//LeftDistance = leftEncoder.getDistance();    //Read encoder distance traveled in meters.
@@ -141,15 +136,14 @@ public class DriveBase extends Subsystem {
     	RightDistance = leftTalon1.getEncPosition() * PulseDistance;
     	
     	
-=======
-    	LeftDistance = leftEncoder.getDistance();    //Read encoder distance traveled in meters.
-    	RightDistance = rightEncoder.getDistance();
+
+    	//LeftDistance = leftEncoder.getDistance();    //Read encoder distance traveled in meters.
+    	//RightDistance = leftEncoder.getDistance();
     	//have to invert rightDistance so the average isn't negative
     	RightDistance *= -1;
     	RobotMap.AverageDistance = (LeftDistance + (RightDistance)) / 2;  // Calculate the average distance traveled.
     	
     			
->>>>>>> 6011140ae92ef4423b2a20ed31e77178eb71dd90
     	SmartDashboard.putNumber("Left Distance", LeftDistance);   
     	SmartDashboard.putNumber("Right Distance", RightDistance);
     	SmartDashboard.putNumber("AV Distance", RobotMap.AverageDistance);
@@ -165,12 +159,9 @@ public class DriveBase extends Subsystem {
     	
     	//moveSpeed = stick.getY() * -1; // set variables = Joystick inputs 
     	//invert the y value to -1 so that pushing the joystick forward gives a positive value
-<<<<<<< HEAD
+
     	//rotateSpeed = stick.getX() * -1; //also invert the x value so right/left aren't inverted
-    	
-=======
-    	rotateSpeed = stick.getX() * -1; //also invert the x value so right/left aren't inverted
->>>>>>> 6011140ae92ef4423b2a20ed31e77178eb71dd90
+ 
     	
     	
     	//returnData = arcadeDrive.calculateSpeed(moveSpeed, rotateSpeed);
@@ -185,7 +176,7 @@ public class DriveBase extends Subsystem {
 
         // Drive the left and right sides of the robot at the specified speeds.
     	rightTalon1.set(rightMotorSpeed * 586); 
-    	leftTalon1.set(leftMotorSpeed * 568); 
+    	leftTalon1.set(leftMotorSpeed * 586); 
     	
     	 SmartDashboard.putNumber("Velocity Left Talon", leftTalon1.getEncVelocity());
     	    SmartDashboard.putNumber("Right Talon Velocity", rightTalon1.getEncVelocity());
@@ -199,12 +190,11 @@ public class DriveBase extends Subsystem {
     	SmartDashboard.putNumber("Right errord", rightTalon1.getError());
     
     	
-<<<<<<< HEAD
-=======
+
     	SmartDashboard.putNumber("LeftPID", leftMotorSpeed);
     	SmartDashboard.putNumber("RightPID", rightMotorSpeed);
     	
->>>>>>> 6011140ae92ef4423b2a20ed31e77178eb71dd90
+
     
     }	 
 

@@ -41,7 +41,7 @@ public class IntakeBase extends Subsystem {
 		//commands for pneumatics/motors on the intake
 		//get compatble with overcomplicated idea
 		
-		DoubleSolenoid intakeSolonoid = new DoubleSolenoid(1,2);
+		DoubleSolenoid intakeSolonoid = new DoubleSolenoid(3,4);
 		  intakeSolonoid.set(DoubleSolenoid.Value.kOff);
 		  intakeSolonoid.set(DoubleSolenoid.Value.kForward);
 		  intakeSolonoid.set(DoubleSolenoid.Value.kReverse);

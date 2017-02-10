@@ -11,12 +11,7 @@
 
 package org.usfirst.frc2084.CMonster2017.commands;
 
-import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.command.CommandGroup;
-
-import org.usfirst.frc2084.CMonster2017.RobotMap;
-import org.usfirst.frc2084.CMonster2017.PID.DistancePID;
-import org.usfirst.frc2084.CMonster2017.PID.HeadingPID;
 import org.usfirst.frc2084.CMonster2017.subsystems.*;
 
 /**
