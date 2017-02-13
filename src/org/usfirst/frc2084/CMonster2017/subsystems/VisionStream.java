@@ -12,6 +12,7 @@ import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 public class VisionStream {
+	//this subsystem currently not in use
 	
 	Thread visionThread;
 	

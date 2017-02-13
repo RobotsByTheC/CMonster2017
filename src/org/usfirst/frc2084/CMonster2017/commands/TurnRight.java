@@ -28,8 +28,10 @@ public class TurnRight extends Command {
 	
 	
 	private final DistancePID distancePID = RobotMap.distancePID;
-	private final Encoder leftEncoder = RobotMap.driveBaseLeftEncoder;
-	private final Encoder rightEncoder = RobotMap.driveBaseRightEncoder;
+
+	//private final Encoder leftEncoder = RobotMap.driveBaseLeftEncoder;
+	//private final Encoder rightEncoder = RobotMap.driveBaseRightEncoder;
+
 	private final HeadingPID headingPID = RobotMap.headingPID;
 	private final AHRS ahrs = RobotMap.ahrs;
 
@@ -51,14 +53,16 @@ public class TurnRight extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	//headingPID.Reset();
-    	headingPID.setAbsoluteTolerance(1.5);
-    	ahrs.reset();
+    	headingPID.ResetPID();
+    	headingPID.setAbsoluteTolerance(1.5); 
+    	//how many degrees off the headingPID can be - prevents oscillation from the 
+    	//robot continuously overshooting and then trying to correct itself
+    	ahrs.reset(); //reset the navX
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	headingPID.setSetpoint(-10);
+    	headingPID.setSetpoint(-10); //the number of degrees you want the robot to move
     	Robot.driveBase.DriveAutonomous();
     }
 

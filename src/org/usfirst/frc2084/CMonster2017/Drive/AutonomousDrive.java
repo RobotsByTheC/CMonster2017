@@ -26,8 +26,8 @@ public class AutonomousDrive {
 	    public static int Waypoint = 0;   // way point index stating at 0.
 	    
 	    
-	    private final Encoder leftEncoder = RobotMap.driveBaseLeftEncoder;
-	    private final Encoder rightEncoder = RobotMap.driveBaseRightEncoder;
+	    //private final Encoder leftEncoder = RobotMap.driveBaseLeftEncoder;
+	    //private final Encoder rightEncoder = RobotMap.driveBaseRightEncoder;
 	    private final AHRS ahrs = RobotMap.ahrs; 
 	    double Yaw;
 	
@@ -42,9 +42,8 @@ public class AutonomousDrive {
 		    WayPointAngle[2] = 0.0;	
 		    
 		    
-		    LeftDistance = leftEncoder.getDistance();    //Read encoder distance traveled in meters.
-	     	RightDistance = rightEncoder.getDistance();
 	     	AverageDistance = (LeftDistance + RightDistance) / 2;  // Calculate the average distance traveled.
+	     	//this average distance is different than RobotMap.AverageDistance
 	     	
 	     	double Yaw = ahrs.getYaw();
 	    	

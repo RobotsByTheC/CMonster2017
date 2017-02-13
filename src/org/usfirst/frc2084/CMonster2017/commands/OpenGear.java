@@ -13,8 +13,12 @@ package org.usfirst.frc2084.CMonster2017.commands;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.command.Command;
 
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+
 import org.usfirst.frc2084.CMonster2017.OI;
 import org.usfirst.frc2084.CMonster2017.Robot;
+import org.usfirst.frc2084.CMonster2017.RobotMap;
+import org.usfirst.frc2084.CMonster2017.subsystems.GearBase;
 
 /**
  *
@@ -40,24 +44,34 @@ public class OpenGear extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
+    	
+    	Robot.gearBase.OpenGear();
+    	//make the gear door open - pneumatic cylinder extend to open the gear
+    	//called from gearBase
+    	
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	//make the pneumatic door open
+ 
+
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return false;
+        return true;
+        //return true because you want the command to end after you press the button
+        //so you can do it multiple times
     }
 
     // Called once after isFinished returns true
     protected void end() {
+    	
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
+    	
     }
 }

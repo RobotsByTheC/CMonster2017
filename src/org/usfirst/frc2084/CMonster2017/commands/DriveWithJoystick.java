@@ -43,8 +43,13 @@ public class DriveWithJoystick extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.driveBase.JoystickInputs(Robot.oi.getJoystick1());  //read the value of the joystick and send them to drive base subsystem
+    	Robot.driveBase.JoystickInputs(Robot.oi.getRightJoystick(),
+    										Robot.oi.getLeftJoystick());
+    	//left joystick AND right joystick - tank drive 
+    	
+    	//read the value of the joystick and send them to drive base subsystem
     	//note: in robot builder make DriveWithJoystick the "default command" for DriveBase subsystem. 		
+    	
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -54,10 +59,12 @@ public class DriveWithJoystick extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
+    	Robot.driveBase.DisableDriveBase();
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
+    	end();
     }
 }

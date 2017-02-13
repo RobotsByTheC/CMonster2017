@@ -12,6 +12,7 @@
 package org.usfirst.frc2084.CMonster2017.commands;
 import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc2084.CMonster2017.Robot;
+import org.usfirst.frc2084.CMonster2017.subsystems.ClimberBase;
 
 /**
  *
@@ -36,23 +37,33 @@ public class StartClimber extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    }
+    	
+    	
+    	}
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+    	//start the climber motor, call from ClimberBase
+    	ClimberBase.climberTalon.enable();
+    	Robot.climberBase.beginClimber();
+    	//when the right button is pressed, call the beginClimber method from climberBase
+    	
+    	    	
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return false;
+        return true;
     }
 
     // Called once after isFinished returns true
     protected void end() {
+    	
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
+    	end();
     }
 }
