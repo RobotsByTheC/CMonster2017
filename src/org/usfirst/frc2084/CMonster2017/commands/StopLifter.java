@@ -36,6 +36,8 @@ public class StopLifter extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
+    	Robot.lifterBase.stopLifter();
+    	//when the right button is pressed, call the stopLifter method from lifterBase
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -44,7 +46,9 @@ public class StopLifter extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return false;
+        return true;
+      //return true because you want the command to end after you press the button
+        //so you can do it multiple times
     }
 
     // Called once after isFinished returns true

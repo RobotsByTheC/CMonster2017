@@ -43,6 +43,7 @@ public class AutonomousDrive {
 		    
 		    
 	     	AverageDistance = (LeftDistance + RightDistance) / 2;  // Calculate the average distance traveled.
+	     	//this average distance is different than RobotMap.AverageDistance
 	     	
 	     	double Yaw = ahrs.getYaw();
 	    	

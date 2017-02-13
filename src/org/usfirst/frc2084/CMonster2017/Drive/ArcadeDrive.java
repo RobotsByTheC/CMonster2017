@@ -45,6 +45,9 @@ public class ArcadeDrive {
 		
 		return robotSpeed;  // return to DriveBasePID
 		
+		
+		//THIS CLASS IS NOT USED ANYMORE SINCE WE SWITCHED TO TANK DRIVE
+		
 	}
 	protected void usePIDOutput(double output) {
 		// TODO Auto-generated method stub

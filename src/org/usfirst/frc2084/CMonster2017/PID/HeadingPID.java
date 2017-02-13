@@ -26,8 +26,8 @@ public class HeadingPID  extends PIDSubsystem {
 	    LiveWindow.addActuator("HeadingPID", "HeadingPID", getPIDController());
 	}
 	
-	public void Reset(){  //reset the PID controller
-		HeadingPID.this.Reset();
+	public void ResetPID(){  //reset the PID controller
+		getPIDController().reset();
 		
 	}
 	protected void initDefaultCommand() {	

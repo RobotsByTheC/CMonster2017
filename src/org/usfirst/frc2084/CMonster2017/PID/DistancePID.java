@@ -18,18 +18,19 @@ static double PIDInput;
 	// The constructor passes a name for the PIDSubsystem 
 	public DistancePID() {  
 		
-		super("DistancePID", 1, 0.0, 0.0);  //calls the parent constructor with arguments P,I,D
+		super("DistancePID", 0.1, 0.0, 0.0);  //calls the parent constructor with arguments P,I,D
+		//need to tune the P,I,D stuff
 		
 		setAbsoluteTolerance(0.1);          // more parameters
 		getPIDController().setContinuous(false);
 		setInputRange(-10,  10);
-	    setOutputRange(-1, 1);
+	    setOutputRange(-0.25, 0.25);
 	    
 	    LiveWindow.addActuator("DistancePID", "DistancePID", getPIDController());
 	}
 	
-	public void Reset(){  //reset the PID controller
-		DistancePID.this.Reset();
+	public void ResetPID(){  //reset the PID controller
+		getPIDController().reset();
 	}
 
 	

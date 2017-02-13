@@ -46,39 +46,32 @@ public class OpenGear extends Command {
     protected void initialize() {
     	
     	Robot.gearBase.OpenGear();
-    	
+    	//make the gear door open - pneumatic cylinder extend to open the gear
+    	//called from gearBase
     	
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	
-    	
-    	
-    	
-    	
-
-    	//make the gear door open
-    	 
-    	 //makes the pneumatic cylinder extend to open the gear 
-
-    	//make the pneumatic door open
+ 
 
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
         return true;
+        //return true because you want the command to end after you press the button
+        //so you can do it multiple times
     }
 
     // Called once after isFinished returns true
     protected void end() {
-    	//GearBase.gearSolenoid.set(DoubleSolenoid.Value.kOff);
+    	
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
-    	//GearBase.gearSolenoid.set(DoubleSolenoid.Value.kOff);
+    	
     }
 }

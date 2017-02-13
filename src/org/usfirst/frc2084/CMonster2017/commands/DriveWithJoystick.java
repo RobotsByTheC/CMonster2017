@@ -45,7 +45,7 @@ public class DriveWithJoystick extends Command {
     protected void execute() {
     	Robot.driveBase.JoystickInputs(Robot.oi.getRightJoystick(),
     										Robot.oi.getLeftJoystick());
-    	
+    	//left joystick AND right joystick - tank drive 
     	
     	//read the value of the joystick and send them to drive base subsystem
     	//note: in robot builder make DriveWithJoystick the "default command" for DriveBase subsystem. 		

@@ -21,6 +21,8 @@ import org.usfirst.frc2084.CMonster2017.RobotMap;
 import org.usfirst.frc2084.CMonster2017.PID.DistancePID;
 import org.usfirst.frc2084.CMonster2017.PID.HeadingPID;
 
+import com.ctre.CANTalon;
+
 import edu.wpi.first.wpilibj.Encoder;
 
 /**
@@ -30,6 +32,9 @@ public class MoveForward extends Command {
 	
 	private final DistancePID distancePID = RobotMap.distancePID;
 	private final HeadingPID headingPID = RobotMap.headingPID;
+	
+	private final CANTalon rightTalon1 = RobotMap.driveBaseRightTalon1;
+	private final CANTalon leftTalon1 = RobotMap.driveBaseLeftTalon1;
 	//private final Encoder leftEncoder = RobotMap.driveBaseLeftEncoder;
 	//private final Encoder rightEncoder = RobotMap.driveBaseRightEncoder;
 
@@ -55,28 +60,24 @@ public class MoveForward extends Command {
     // Called just before this Command runs the first time
     protected void initialize() {
     	
-    	distancePID.enable();
+    	distancePID.enable();  //enable and reset the PIDs
     	headingPID.enable();
-    	//distancePID.Reset();
-    	//headingPID.Reset();
+    	distancePID.ResetPID();
+    	headingPID.ResetPID();
 
-    	RobotMap.ahrs.reset();
+    	RobotMap.ahrs.reset(); //reset the navX
     	Robot.driveBase.EnableDriveBase();
-    	headingPID.setSetpoint(0);
+    	headingPID.setSetpoint(0);  //reset headingPID
 
-    	//leftEncoder.reset();
-    	//rightEncoder.reset();
-    	RobotMap.ahrs.reset();
-    	Robot.driveBase.EnableDriveBase();
-    	headingPID.setSetpoint(0);
-    
-
+    	leftTalon1.setEncPosition(0);  //reset the encoders positions
+    	rightTalon1.setEncPosition(0);
+    	
     	
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	distancePID.setSetpoint(2);
+    	distancePID.setSetpoint(2); //divide by 3.2 to convert to feet from meters
     	Robot.driveBase.DriveAutonomous();
     	SmartDashboard.putNumber("NAVX Yaw", (double)RobotMap.ahrs.getYaw());
     }

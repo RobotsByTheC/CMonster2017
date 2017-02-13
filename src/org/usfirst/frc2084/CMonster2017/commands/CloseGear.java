@@ -41,23 +41,22 @@ public class CloseGear extends Command {
     // Called just before this Command runs the first time
     protected void initialize() {
     	Robot.gearBase.CloseGear();
+    	//makes the gear door close when the right button is pressed
+    	//called from gearBase
     	
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	
-    	
-
-    	//make the gear door close
-    	//GearBase.gearSolenoid.set(DoubleSolenoid.Value.kReverse);
-    	//makes the pneumatic cylinder go back to close the gear thing 
+    
     	    }
 
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
         return true;
+        //return true because you want the command to end after you press the button
+        //so you can do it multiple times
     }
 
     // Called once after isFinished returns true
