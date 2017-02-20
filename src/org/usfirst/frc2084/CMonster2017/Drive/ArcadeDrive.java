@@ -15,7 +15,8 @@ public class ArcadeDrive {
 	public double[] calculateSpeed (double moveSpeed,double rotateSpeed){
 	
 		
-		 // Do the calculations for arcade drive.
+		 // Do the calculations for arcade drive - only used in autonomous
+		//not in teleop since we switched to tank drive
         if (moveSpeed > 0.0) {
             if (rotateSpeed > 0.0) {
                 leftMotorSpeed = moveSpeed - rotateSpeed;

@@ -58,6 +58,7 @@ public class Robot extends IterativeRobot {
 
 	public void robotInit() {
 		RobotMap.init();
+		
 
 		autoChooser = new SendableChooser();
 		autoChooser.addDefault("MiddleProgram", new MoveForward());
@@ -80,7 +81,9 @@ public class Robot extends IterativeRobot {
 		// (which it very likely will), subsystems are not guaranteed to be
 		// constructed yet. Thus, their requires() statements may grab null
 		// pointers. Bad news. Don't move it.
+        //visionStream = new VisionStream();
 		oi = new OI();
+		
 
 		autonomousCommand = new AutonomousCommand();
 
@@ -138,6 +141,9 @@ public class Robot extends IterativeRobot {
 		// this line or comment it out.
 		if (autonomousCommand != null)
 			autonomousCommand.cancel();
+		
+		
+		//visionStream.Init();
 	}
 
 	/**
@@ -152,5 +158,8 @@ public class Robot extends IterativeRobot {
 	 */
 	public void testPeriodic() {
 		LiveWindow.run();
+		Robot.driveBase.EnableDriveBase();
+		Robot.driveBase.DriveAutonomous();
+		SmartDashboard.putNumber("AV Distance", RobotMap.AverageDistance);
 	}
 }

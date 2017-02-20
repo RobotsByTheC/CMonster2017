@@ -18,13 +18,14 @@ static double PIDInput;
 	// The constructor passes a name for the PIDSubsystem 
 	public DistancePID() {  
 		
-		super("DistancePID", 0.1, 0.0, 0.0);  //calls the parent constructor with arguments P,I,D
-		//need to tune the P,I,D stuff
+		super("DistancePID", 0.15, 0.0, 0.0);  //calls the parent constructor with arguments P,I,D
+		//need to tune the P,I,D stuff   //change I term to 0.0001
+		//increase I term for less oscillation
 		
-		setAbsoluteTolerance(0.1);          // more parameters
+		setAbsoluteTolerance(0.2);       // more parameters
 		getPIDController().setContinuous(false);
 		setInputRange(-10,  10);
-	    setOutputRange(-0.25, 0.25);
+	    setOutputRange(-0.25, 0.25); //1/5 speed
 	    
 	    LiveWindow.addActuator("DistancePID", "DistancePID", getPIDController());
 	}
@@ -36,7 +37,6 @@ static double PIDInput;
 	
 	protected double returnPIDInput() {
 		// TODO Auto-generated method stub
-		//SmartDashboard.putNumber("DistancePID1", DriveBase.AverageDistance);
 		return RobotMap.AverageDistance;
 	}
 	

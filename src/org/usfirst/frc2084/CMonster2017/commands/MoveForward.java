@@ -77,9 +77,10 @@ public class MoveForward extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	distancePID.setSetpoint(2); //divide by 3.2 to convert to feet from meters
-    	Robot.driveBase.DriveAutonomous();
+    	distancePID.setSetpoint(-7.0); 
+    	Robot.driveBase.DriveAutonomous(); //call the DriveAutonomous class with all the commands in it
     	SmartDashboard.putNumber("NAVX Yaw", (double)RobotMap.ahrs.getYaw());
+    	
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -90,8 +91,6 @@ public class MoveForward extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
-    	//Scheduler.getInstance().removeAll(); // resets distances for the next
-		//autonomous command, so values don't carry over through different autos
  
     }
 

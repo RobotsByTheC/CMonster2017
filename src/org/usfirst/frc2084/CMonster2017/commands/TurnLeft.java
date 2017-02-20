@@ -52,13 +52,15 @@ public class TurnLeft extends Command {
     	headingPID.setAbsoluteTolerance(1.5); 
     	//how many degrees off the headingPID can be - prevents oscillation from the 
     	//robot continuously overshooting and then trying to correct itself
+    	Robot.driveBase.EnableDriveBase();
     	ahrs.reset();  //reset the navX
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	headingPID.setSetpoint(10); //the number of degrees you want the headingPID to move
-    	Robot.driveBase.DriveAutonomous();
+    	headingPID.setSetpoint(30); //the number of degrees you want the headingPID to move
+    	Robot.driveBase.DriveAutonomous(); //degrees changed from 30 to 60
+    	//moves forward during turn
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -69,6 +71,7 @@ public class TurnLeft extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
+     
     }
 
     // Called when another command which requires one or more of the same

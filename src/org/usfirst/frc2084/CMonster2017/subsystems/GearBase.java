@@ -44,7 +44,7 @@ public class GearBase extends Subsystem {
 
 	public void OpenGear() {
 
-		// declare a new instance of a solenoid, make off, reverse, and forward
+		// declare a new instance of a solenoid, make the off, reverse, and forward
 		// commands
 
 		gearSolenoid.set(DoubleSolenoid.Value.kForward);

@@ -32,6 +32,7 @@ import com.ctre.CANTalon.TalonControlMode;
 import edu.wpi.first.wpilibj.smartdashboard.*;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 
 /**
  *
@@ -93,6 +94,7 @@ public class DriveBase extends Subsystem {
 		Robot.gearBase.CompressorOn(); //turn on the compressor when the robot is enabled
 		leftTalon1.setPosition(0);
 		rightTalon1.setPosition(0);
+		
 	}
 
 	public void DisableDriveBase() {
@@ -123,7 +125,7 @@ public class DriveBase extends Subsystem {
 		// ArchadeDrive class
 
 		leftTalon1.set(leftMotorSpeed * 586); // set thing to max RPM
-		rightTalon1.set(rightMotorSpeed * 586);// changed from * 586
+		rightTalon1.set(rightMotorSpeed * 586);
 
 		// LeftDistance = leftEncoder.getDistance(); //Read encoder distance
 		// traveled in meters.
@@ -144,7 +146,7 @@ public class DriveBase extends Subsystem {
 																		// traveled.
 
 		//SmartDashboard stuff		
-		SmartDashboard.putNumber("WheelDiameter", WheelDiameter);
+		//SmartDashboard.putNumber("WheelDiameter", WheelDiameter);
 		SmartDashboard.putNumber("LeftDistance", LeftDistance);
 		SmartDashboard.putNumber("AV Distance", RobotMap.AverageDistance);
 		SmartDashboard.putNumber("Right Distance", RightDistance);
@@ -153,6 +155,9 @@ public class DriveBase extends Subsystem {
 		SmartDashboard.putNumber("LeftTalonPosition", leftTalon1.getPosition());
 		SmartDashboard.putNumber("DistancePerPulse", RobotMap.DISTANCE_PER_PULSE);
 		// SmartDashboard.putNumber("HeadingPID", headingPID.getOutput());
+		SmartDashboard.putNumber("LeftMotorSpeed", leftMotorSpeed);
+		SmartDashboard.putNumber("RightMotorSpeed", rightMotorSpeed);
+					
 
 	}
 
