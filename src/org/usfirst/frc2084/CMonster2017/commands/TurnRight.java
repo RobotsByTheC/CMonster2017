@@ -63,8 +63,8 @@ public class TurnRight extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	headingPID.setSetpoint(-30); //the number of degrees you want the robot to move
-    	Robot.driveBase.DriveAutonomous(); //degrees changed form 30 degrees to 60 degrees
+    	headingPID.setSetpoint(-60); //the number of degrees you want the robot to move
+    	Robot.driveBase.DriveAutonomous(); //negative because gear thing is on back of robot
     }
 
     // Make this return true when this Command no longer needs to run execute()

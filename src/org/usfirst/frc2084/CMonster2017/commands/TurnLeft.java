@@ -58,8 +58,8 @@ public class TurnLeft extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	headingPID.setSetpoint(30); //the number of degrees you want the headingPID to move
-    	Robot.driveBase.DriveAutonomous(); //degrees changed from 30 to 60
+    	headingPID.setSetpoint(60); //the number of degrees you want the headingPID to move
+    	Robot.driveBase.DriveAutonomous(); 
     	//moves forward during turn
     }
 

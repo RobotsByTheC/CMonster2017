@@ -58,6 +58,7 @@ visionThread.start();
 
 
 public class VisionStream {
+	
 	//used for switching between two cameras
 	
 	//int currSession;
@@ -92,6 +93,9 @@ public class VisionStream {
 	SmartDashboard.putNumber("sessionback", sessionback);
 	
 	
+	
+	//if statement to switch whatever camera stream back to the other one when the 
+	 //buttons is pressed
 	
 	if (switchCamera == true){
 		if(currSession == sessionfront){

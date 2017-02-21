@@ -189,6 +189,11 @@ public class DriveBase extends Subsystem {
 			leftMotorSpeed = LeftJoystick.getY() * -1;
 			rightMotorSpeed = RightJoystick.getY();
 		}
+		
+		SmartDashboard.putNumber("RightTalonPosition", rightTalon1.getPosition());
+		SmartDashboard.putNumber("LeftTalonPosition", leftTalon1.getPosition());
+		SmartDashboard.putNumber("YAW", (double) ahrs.getYaw());
+
 
 
 

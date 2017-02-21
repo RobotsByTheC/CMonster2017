@@ -40,7 +40,7 @@ public class ClimberBase extends Subsystem {
     // here. Call these from Commands.
 	
 	public void beginClimber(){
-		climberTalon.set(1);
+		climberTalon.set(-1);
 		//set the talon to a speed
 	}
 	
@@ -50,7 +50,7 @@ public class ClimberBase extends Subsystem {
 	}
 	
 	public void beginUnwindClimber(){
-		climberTalon.set(-1);
+		climberTalon.set(1);
 	}
 	
 	public void stopUnwindClimber(){

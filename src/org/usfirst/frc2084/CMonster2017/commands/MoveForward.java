@@ -77,7 +77,7 @@ public class MoveForward extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	distancePID.setSetpoint(-7.0); 
+    	distancePID.setSetpoint(-6.8); //goes 7 feet
     	Robot.driveBase.DriveAutonomous(); //call the DriveAutonomous class with all the commands in it
     	SmartDashboard.putNumber("NAVX Yaw", (double)RobotMap.ahrs.getYaw());
     	
