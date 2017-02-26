@@ -176,19 +176,24 @@ public class DriveBase extends Subsystem {
 		// returnData = arcadeDrive.calculateSpeed(moveSpeed, rotateSpeed);
 
 		//these are the commands for inverting the drive, called into the Inversion command
-		if (isInverted == true) {
-			rightTalon1.setInverted(true);
-			leftTalon1.setInverted(true);
+		
+		
+		
+		//if (isInverted) {
+			rightTalon1.setInverted(isInverted);
+			leftTalon1.setInverted(isInverted);
 			leftMotorSpeed = RightJoystick.getY() * -1;
 			rightMotorSpeed = LeftJoystick.getY();
-		}
-
-		else {
+//		}
+/*
+		 else {
 			rightTalon1.setInverted(false);
 			leftTalon1.setInverted(false);
 			leftMotorSpeed = LeftJoystick.getY() * -1;
 			rightMotorSpeed = RightJoystick.getY();
 		}
+		*/
+		
 		
 		SmartDashboard.putNumber("RightTalonPosition", rightTalon1.getPosition());
 		SmartDashboard.putNumber("LeftTalonPosition", leftTalon1.getPosition());
