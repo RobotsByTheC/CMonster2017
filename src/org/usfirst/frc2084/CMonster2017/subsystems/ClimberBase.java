@@ -57,6 +57,8 @@ public class ClimberBase extends Subsystem {
 		climberTalon.set(0);
 	}
 	
+	
+	//unused methods at this point
 	public void startClimberPiston(){
 		climberSolenoid.set(DoubleSolenoid.Value.kForward);
 		//method that extends the climber piston, called into the button commands

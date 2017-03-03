@@ -108,7 +108,7 @@ public class OI {
         rightJoystick = new Joystick(0);
         
         iNV = new JoystickButton(rightJoystick, 1);
-        iNV.whileHeld(new Inversion());
+        iNV.whenPressed(new Inversion());
 
 
         // SmartDashboard Buttons

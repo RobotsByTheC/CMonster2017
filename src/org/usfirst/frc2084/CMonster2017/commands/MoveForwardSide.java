@@ -54,6 +54,8 @@ public class MoveForwardSide extends Command {
     	RobotMap.ahrs.reset(); //reset the navX
     	Robot.driveBase.EnableDriveBase();
     	headingPID.setSetpoint(0);  //reset headingPID
+    	distancePID.setAbsoluteTolerance(0.3);
+    	distancePID.setOutputRange(-0.22, +0.22);
 
     	leftTalon1.setEncPosition(0);  //reset the encoders positions
     	rightTalon1.setEncPosition(0);

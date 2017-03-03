@@ -58,12 +58,10 @@ public class OI {
     public JoystickButton cG;
     public JoystickButton sC;
     public JoystickButton stC;
-    public JoystickButton sL;
-    public JoystickButton stL;
-    public JoystickButton cPO;
+    public JoystickButton rGU;
+    public JoystickButton rGD;
+    public JoystickButton oCFG;
     public JoystickButton cPC;
-    public JoystickButton iN;
-    public JoystickButton oUT;
     public JoystickButton uC;
     public JoystickButton stUC;
     public Joystick logitech;
@@ -81,18 +79,14 @@ public class OI {
         stUC.whenReleased(new StopUnwindClimber());
         uC = new JoystickButton(logitech, 9);
         uC.whileHeld(new UnwindClimber());
-        oUT = new JoystickButton(logitech, 7);
-        oUT.whenPressed(new BallsGoOut());
-        iN = new JoystickButton(logitech, 5);
-        iN.whenPressed(new BallsGoIn());
         cPC = new JoystickButton(logitech, 2);
         cPC.whenPressed(new ClimberPistonClose());
-        cPO = new JoystickButton(logitech, 4);
-        cPO.whenPressed(new ClimberPistonOpen());
-        stL = new JoystickButton(logitech, 7);
-        stL.whenReleased(new StopLifter());
-        sL = new JoystickButton(logitech, 5);
-        sL.whileHeld(new StartLifter());
+        oCFG = new JoystickButton(logitech, 4);
+        oCFG.whenPressed(new ClimberPistonOpen());
+        rGD = new JoystickButton(logitech, 7);
+        rGD.whenPressed(new RotateGearDown());
+        rGU = new JoystickButton(logitech, 5);
+        rGU.whenPressed(new RotateGearUp());
         stC = new JoystickButton(logitech, 1);
         stC.whenReleased(new StopClimber());
         sC = new JoystickButton(logitech, 1);
@@ -108,7 +102,7 @@ public class OI {
         rightJoystick = new Joystick(0);
         
         iNV = new JoystickButton(rightJoystick, 1);
-        iNV.whileHeld(new Inversion());
+        iNV.whenPressed(new Inversion());
 
 
         // SmartDashboard Buttons
