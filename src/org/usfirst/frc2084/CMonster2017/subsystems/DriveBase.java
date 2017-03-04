@@ -177,8 +177,6 @@ public class DriveBase extends Subsystem {
 
 		//these are the commands for inverting the drive, called into the Inversion command
 		
-		
-		
 		//if (isInverted) {
 			rightTalon1.setInverted(isInverted);
 			leftTalon1.setInverted(isInverted);

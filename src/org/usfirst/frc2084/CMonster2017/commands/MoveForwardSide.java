@@ -64,7 +64,7 @@ public class MoveForwardSide extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	distancePID.setSetpoint(-5.5); 
+    	distancePID.setSetpoint(-6.5); //goes 6.5 feet forward 
     	Robot.driveBase.DriveAutonomous(); //call the DriveAutonomous class with all the commands in it
     }
 
