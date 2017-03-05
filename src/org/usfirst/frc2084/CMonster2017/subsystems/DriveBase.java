@@ -68,6 +68,7 @@ public class DriveBase extends Subsystem {
 	boolean InPosition; // variables for autonomous
 	public static double LeftDistance; //left and right distance are averaged for the average distance
 	public static double RightDistance;
+	public static double scale = 1.0;
 	int Waypoint = 1; // the number of way points stating at 1.
 	double[] WayPoints = new double[3]; // array with 3 elements holding the
 										// distance to each way point;
@@ -217,8 +218,8 @@ public class DriveBase extends Subsystem {
 		// leftMotorSpeed *= -1; // invert motor speed command.
 
 		// Drive the left and right sides of the robot at the specified speeds.
-		rightTalon1.set(rightMotorSpeed * 586); //set to max RPM
-		leftTalon1.set(leftMotorSpeed * 586);
+		rightTalon1.set(rightMotorSpeed * 586 * scale); //set to max RPM
+		leftTalon1.set(leftMotorSpeed * 586 * scale);
 
 		
 

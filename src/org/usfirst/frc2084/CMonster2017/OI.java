@@ -53,6 +53,7 @@ public class OI {
     public JoystickButton iNV;
     public Joystick rightJoystick;
     public JoystickButton cS;
+    public JoystickButton nCS;
     public Joystick leftJoystick;
     public JoystickButton oG;
     public JoystickButton cG;
@@ -82,7 +83,7 @@ public class OI {
         cPC = new JoystickButton(logitech, 2);
         cPC.whenPressed(new ClimberPistonClose());
         oCFG = new JoystickButton(logitech, 4);
-        oCFG.whenPressed(new ClimberPistonOpen());
+        oCFG.whenPressed(new OpenFloorGear());
         rGD = new JoystickButton(logitech, 7);
         rGD.whenPressed(new RotateGearDown());
         rGU = new JoystickButton(logitech, 5);
@@ -97,8 +98,10 @@ public class OI {
         oG.whenPressed(new OpenGear());
         leftJoystick = new Joystick(1);
         
+        nCS = new JoystickButton(leftJoystick, 1);
+        nCS.whenReleased(new NonJoystickScale());
         cS = new JoystickButton(leftJoystick, 1);
-        cS.whenPressed(new CameraSwitch());
+        cS.whileHeld(new JoystickScale());
         rightJoystick = new Joystick(0);
         
         iNV = new JoystickButton(rightJoystick, 1);

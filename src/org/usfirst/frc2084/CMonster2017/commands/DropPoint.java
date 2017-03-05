@@ -64,7 +64,7 @@ public class DropPoint extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	distancePID.setSetpoint(-2.8);  //telling the robot to move 1.2 feet when this command is run
+    	distancePID.setSetpoint(-3);  //telling the robot to move 3 feet when this command is run
     	Robot.driveBase.DriveAutonomous();
     }
 
