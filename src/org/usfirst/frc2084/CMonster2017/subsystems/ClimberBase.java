@@ -40,7 +40,7 @@ public class ClimberBase extends Subsystem {
     // here. Call these from Commands.
 	
 	public void beginClimber(){
-		climberTalon.set(1);
+		climberTalon.set(-1);
 		//set the talon to a speed
 	}
 	
@@ -49,6 +49,16 @@ public class ClimberBase extends Subsystem {
 		//when climber is stopped, talon is set to zero (no movement)
 	}
 	
+	public void beginUnwindClimber(){
+		climberTalon.set(1);
+	}
+	
+	public void stopUnwindClimber(){
+		climberTalon.set(0);
+	}
+	
+	
+	//unused methods at this point
 	public void startClimberPiston(){
 		climberSolenoid.set(DoubleSolenoid.Value.kForward);
 		//method that extends the climber piston, called into the button commands

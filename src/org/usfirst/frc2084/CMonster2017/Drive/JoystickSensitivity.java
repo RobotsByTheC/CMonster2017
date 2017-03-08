@@ -10,8 +10,7 @@ public class JoystickSensitivity {
 	public double GetOutput(double Input){
 		Output = Sensitivity * Math.pow(Input, 3) + (1-Sensitivity) * Input;
 		// (1 - Sensitivity) sets the maximum to one
-		//Cube the sensitivity because you want a parabola
-		//double symmetrical parabola on either side of the y-axis
+		//Cube the sensitivity because you want a parabola - double symmetrical parabola on either side of the y-axis
 		//want a parabola because less sensitive at lower speeds but goes to the same max speed
 		
 		
