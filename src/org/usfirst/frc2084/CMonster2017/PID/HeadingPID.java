@@ -16,12 +16,13 @@ public class HeadingPID  extends PIDSubsystem {
 	
 	// The constructor passes a name for the PIDSubsystem 
 	public HeadingPID() {  
-		super("HeadingPID", .005, 0.001, 0.0);  //calls the parent constructor with arguments P,I,D
+		super("HeadingPID", 0.06, 0.0, 0.0);  //calls the parent constructor with arguments P,I,D
+		//keep P term at 0.06!!!!
 		
-		setAbsoluteTolerance(0.1);          // more parameters
+		setAbsoluteTolerance(0.5);          // more parameters
 		getPIDController().setContinuous(false);
 		setInputRange(-180.0,  180.0);
-	    setOutputRange(-1.0, 1.0);
+	    setOutputRange(-0.25, 0.25);
 	    
 	    LiveWindow.addActuator("HeadingPID", "HeadingPID", getPIDController());
 	}

@@ -26,6 +26,7 @@ public class DropPoint extends Command {
 	private final DistancePID distancePID = RobotMap.distancePID;
 	private final HeadingPID headingPID = RobotMap.headingPID;
 	
+	
 	private final CANTalon rightTalon1 = RobotMap.driveBaseRightTalon1;
 	private final CANTalon leftTalon1 = RobotMap.driveBaseLeftTalon1;
 
@@ -58,11 +59,12 @@ public class DropPoint extends Command {
     	RobotMap.ahrs.reset();  //reset the navX
     	Robot.driveBase.EnableDriveBase();
     	headingPID.setSetpoint(0);  //reset the headingPID 
+    	
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	distancePID.setSetpoint(1.5);  //telling the robot to move 1.5 feet when this command is run
+    	distancePID.setSetpoint(-3);  //telling the robot to move 3 feet when this command is run
     	Robot.driveBase.DriveAutonomous();
     }
 

@@ -36,8 +36,8 @@ public class Inversion extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	Robot.driveBase.isInverted = true;
-    	//when the button is pressed, the robot controlls are inverted
+    	Robot.driveBase.isInverted = !Robot.driveBase.isInverted;
+    	//when the button is pressed, the robot controls are inverted from what they were
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -46,13 +46,11 @@ public class Inversion extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return false;  //true or false here?
+        return true;  //return true so the button can be pressed more than once
     }
 
     // Called once after isFinished returns true
     protected void end() {
-    	Robot.driveBase.isInverted = false;
-    	//when the button is released, the inversion stops and stuff goes back to normal
     }
 
     // Called when another command which requires one or more of the same
