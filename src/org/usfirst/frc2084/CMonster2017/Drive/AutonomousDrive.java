@@ -19,7 +19,8 @@ public class AutonomousDrive {
 	    double RightDistance;
 	    
 	    
-	           
+	    //waypoints no longer used       
+	    
 	    double [] WayPoints = new double[3] ;  // array with 3 elements holding the distance to each way point;
 	    double [] WayPointAngle = new double[3] ;  //angle to the next way point
 	    double[] ReturnData = new double[2];  // place holder for distance and angle 

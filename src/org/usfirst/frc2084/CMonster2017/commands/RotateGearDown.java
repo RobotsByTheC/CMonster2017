@@ -37,7 +37,10 @@ public class RotateGearDown extends Command {
     // Called just before this Command runs the first time
     protected void initialize() {
     	Robot.gearBase.rotateGearDown();
-    	//call command from gearBase to open pneumatic
+    	//call command from gearBase to move rotary actuator down
+    	
+    	Robot.gearBase.gearIntakeGo();
+    	
     }
 
     // Called repeatedly when this Command is scheduled to run

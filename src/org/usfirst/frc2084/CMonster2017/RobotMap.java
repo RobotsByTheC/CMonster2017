@@ -21,6 +21,8 @@ import edu.wpi.first.wpilibj.PIDController;
 import edu.wpi.first.wpilibj.PIDSourceType;
 import edu.wpi.first.wpilibj.Spark;
 import edu.wpi.first.wpilibj.SpeedController;
+import edu.wpi.first.wpilibj.Timer;
+
 import com.ctre.CANTalon.FeedbackDevice;
 import com.ctre.CANTalon.TalonControlMode;
 import edu.wpi.first.wpilibj.command.Subsystem;
@@ -89,7 +91,10 @@ public class RobotMap {
 
 	public static CANTalon driveBaseClimberTalon; // Talon for the climber
 	public static CANTalon lifterTalon; // talon for the climber
-
+	public static CANTalon GearIntakeTalon; //talon that controls motor to intake gear from floor
+	public static SpeedController spark;
+	public static SpeedController climberSpark;
+	
 	/**
 	 * .0 Wheel diameter in feet.
 	 */
@@ -138,6 +143,12 @@ public class RobotMap {
 		// talon for the climber
 		driveBaseClimberTalon = new CANTalon(6);
 		lifterTalon = new CANTalon(7); // talon for lifter
+		GearIntakeTalon = new CANTalon(8); //talon to intake gear from the floor
+		spark = new Spark(0); //set the PWM channel to zero
+		climberSpark = new Spark(1);//set the PWM channel to one
+		
+		//SmartDashboard.putNumber("Match Timer", Timer.getMatchTime());
+		//print out match timer to the SmartDashboard
 
 		// change modes
 		driveBaseLeftTalon1.changeControlMode(TalonControlMode.Speed); // speed
@@ -162,6 +173,11 @@ public class RobotMap {
 		driveBaseRightTalon1.setFeedbackDevice(FeedbackDevice.QuadEncoder);
 		;
 		
+		//quadrature encoder can tell direction
+		//pulses per revolution tells distance
+		//number of revolutions divided by 2048 pulses per one revolution 
+		//multiplied by circumference of the wheel gives distance traveled
+		
 		
 		driveBaseLeftTalon1.configEncoderCodesPerRev(2048); // pulses per
 															// revolution
@@ -169,24 +185,31 @@ public class RobotMap {
 																// revolution
 
 		// set PID parameters
-		driveBaseLeftTalon1.setPID(.05, 0, 0);
+		driveBaseLeftTalon1.setPID(.05, 0, 0); //why is there PID stuff here??!
 		driveBaseRightTalon1.setPID(.05, 0, 0);
 		driveBaseLeftTalon1.setF(.125680591); // changed to 0.12 based on f-gain
 												// calculations
 		driveBaseRightTalon1.setF(.125680591); // changed to 0.12 based on
 												// f-gain calculations
 
-		// set nominal/peak outputs voltage
+		//f-gain calculations: multiply pulses per revolution (2048) by revolutions per 
+		//minute (1366) to get pulses per minute. Then divide pulses per minute by 
+		//600 because you want 100ms intervals. Then divide 568 by what you get. Answer is f-term. 
+		//f-gain multiplied by pulses per 100ms = max speed
+		//EQUATION: f * ((2048 * 1366)/600) = 586   ~solve for f
+		
+		//f-gain makes sure that full motor output is calculated when requested speed is 4,662 pulses
+		//per 100ms. Makes sure there is proportional motor output to the pulses set by the talon.
+		
+		
+		//set nominal/peak outputs voltage
 		driveBaseLeftTalon1.configNominalOutputVoltage(+0.0f, -0.0f);
 		driveBaseRightTalon1.configNominalOutputVoltage(+0.0f, -0.0f);
 		driveBaseLeftTalon1.configPeakOutputVoltage(+12.0f, -12.0f);
 		driveBaseRightTalon1.configPeakOutputVoltage(+12.0f, -12.0f);
 
-		ahrs = new AHRS(I2C.Port.kMXP, (byte) 100); // the navX
+		ahrs = new AHRS(I2C.Port.kMXP, (byte) 100); // the navX!!
 		LiveWindow.addSensor("Drive Subsystem", "navX", ahrs);
-
-		// driveBaseLeftEncoder.setDistancePerPulse(DRIVE_SUBYSTEM_ENCODER_DISTANCE_PER_PULSE);
-		// driveBaseRightEncoder.setDistancePerPulse(DRIVE_SUBYSTEM_ENCODER_DISTANCE_PER_PULSE);
 
 	}
 }

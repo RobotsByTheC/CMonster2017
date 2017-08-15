@@ -36,7 +36,7 @@ public class Inversion extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	Robot.driveBase.isInverted = !Robot.driveBase.isInverted;
+    	//Robot.driveBase.isInverted = !Robot.driveBase.isInverted;
     	//when the button is pressed, the robot controls are inverted from what they were
     }
 

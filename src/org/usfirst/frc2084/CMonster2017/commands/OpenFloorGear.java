@@ -37,7 +37,7 @@ public class OpenFloorGear extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	GearBase.floorGearUp = !GearBase.floorGearUp;
+    	//GearBase.floorGearUp = !GearBase.floorGearUp;
     	//switches the value of the boolean whenever the button is pressed
     }
 
@@ -58,5 +58,6 @@ public class OpenFloorGear extends Command {
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
+    	end();
     }
 }

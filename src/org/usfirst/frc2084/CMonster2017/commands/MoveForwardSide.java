@@ -55,7 +55,8 @@ public class MoveForwardSide extends Command {
     	Robot.driveBase.EnableDriveBase();
     	headingPID.setSetpoint(0);  //reset headingPID
     	distancePID.setAbsoluteTolerance(0.3);
-    	distancePID.setOutputRange(-0.2, +0.2); //what percent of speed
+    	distancePID.setOutputRange(-0.22, +0.22); //what percent of speed
+    	//STAY AT 0.22!!!!!
 
     	leftTalon1.setEncPosition(0);  //reset the encoders positions
     	rightTalon1.setEncPosition(0);
@@ -64,7 +65,7 @@ public class MoveForwardSide extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	distancePID.setSetpoint(-6.9); //goes 6.9 feet forward 
+    	distancePID.setSetpoint(-7.0); //changed from 6.9
     	Robot.driveBase.DriveAutonomous(); //call the DriveAutonomous class with all the commands in it
     }
 

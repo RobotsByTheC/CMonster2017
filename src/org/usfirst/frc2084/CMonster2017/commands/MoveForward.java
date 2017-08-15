@@ -68,6 +68,8 @@ public class MoveForward extends Command {
     	RobotMap.ahrs.reset(); //reset the navX
     	Robot.driveBase.EnableDriveBase();
     	headingPID.setSetpoint(0);  //reset headingPID
+    	//distancePID.setOutputRange(-0.2, +0.2); //what percent of speed
+    	//if not set in command, speed is automatically 0.25, the speed set in DistancePID
 
     	leftTalon1.setEncPosition(0);  //reset the encoders positions
     	rightTalon1.setEncPosition(0);

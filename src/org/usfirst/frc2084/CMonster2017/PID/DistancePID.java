@@ -19,12 +19,12 @@ static double PIDInput;
 	public DistancePID() {  
 		
 		super("DistancePID", 0.14, 0.0, 0.01);  //calls the parent constructor with arguments P,I,D
-		//working PIDs: 0.24, 0, 0
+		//DON'T TOUCH!!!
 		
 		setAbsoluteTolerance(0.2);       // more parameters
 		getPIDController().setContinuous(false);
 		setInputRange(-10,  10);
-	    setOutputRange(-0.25, 0.25); //1/5 speed
+	    setOutputRange(-0.25, 0.25); //1/4 speed default speed for all commands where the speed isn't set
 	    
 	    LiveWindow.addActuator("DistancePID", "DistancePID", getPIDController());
 	}

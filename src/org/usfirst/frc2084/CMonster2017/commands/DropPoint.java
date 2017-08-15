@@ -58,13 +58,14 @@ public class DropPoint extends Command {
     	
     	RobotMap.ahrs.reset();  //reset the navX
     	Robot.driveBase.EnableDriveBase();
-    	headingPID.setSetpoint(0);  //reset the headingPID 
+    	headingPID.setSetpoint(0);  //reset the headingPID
+    	//uses distancePID's set speed of 0.25
     	
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	distancePID.setSetpoint(-3);  //telling the robot to move 3 feet when this command is run
+    	distancePID.setSetpoint(-3.0);  //telling the robot to move 3 feet when this command is run
     	Robot.driveBase.DriveAutonomous();
     }
 

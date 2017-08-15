@@ -17,7 +17,7 @@ public class HeadingPID  extends PIDSubsystem {
 	// The constructor passes a name for the PIDSubsystem 
 	public HeadingPID() {  
 		super("HeadingPID", 0.06, 0.0, 0.0);  //calls the parent constructor with arguments P,I,D
-		//keep P term at 0.06!!!!
+		//keep P term at 0.06!!!! DON'T TOUCH!!!
 		
 		setAbsoluteTolerance(0.5);          // more parameters
 		getPIDController().setContinuous(false);

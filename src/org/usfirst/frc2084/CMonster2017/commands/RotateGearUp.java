@@ -38,6 +38,8 @@ public class RotateGearUp extends Command {
     protected void initialize() {
     	Robot.gearBase.rotateGearUp();
     	//call the method from gearBase that moves the pneumatic
+    	
+    	Robot.gearBase.gearIntakeStop();
     }
 
     // Called repeatedly when this Command is scheduled to run
